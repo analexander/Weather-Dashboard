@@ -1,9 +1,8 @@
 function searchWeather(city) {
 
 
-    // var cityName = response.name
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2ad6f6ff3e813152c0dc8257bf34ef21";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=2ad6f6ff3e813152c0dc8257bf34ef21";
 
     $.ajax({
       url: queryURL,
@@ -16,12 +15,13 @@ function searchWeather(city) {
 
 
     var cityName = $("<h1>").text(response.name);
+    var cityTemp = $("<h2>").text(response.main.temp);
     var cityHumid = $("<h2>").text(response.main.humidity);
     var cityWindSpeed = $("<h2>").text(response.wind.speed);
     var cityUVI = $("<h2>").text(response.uvi);
 
     $("#weather-output").empty();
-    $("weather-output").append(cityName, cityHumid, cityWindSpeed, cityUVI);
+    $("#weather-output").append(cityName, cityTemp, cityHumid, cityWindSpeed, cityUVI);
 
     });
 
