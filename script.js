@@ -138,14 +138,25 @@ function getUVIndex(lat, lon){
     });
 }
 
+function setLocalStorage() {
+// Get city search input
+var searchInput = $("#search-input").val();
+if (searchInput) {
+    // Load the city from storage
+    searchInput.innerHTML = localStorage.getItem(searchInput);
+}
+};
+
 
 // search button click event
 
 $("#search-btn").on("click", function(event) {
     event.preventDefault();
     // This line of code will grab the input from the textbox
-    var cityNameInput = $("#search-input").val().trim();
-    getLatLon(cityNameInput)
-    searchWeather(cityNameInput)
-    fiveDayForecast(cityNameInput)
+    var searchInput = $("#search-input").val().trim();
+    // var city = "city";
+    localStorage.setItem("city", searchInput);
+    getLatLon(searchInput)
+    searchWeather(searchInput)
+    fiveDayForecast(searchInput)
 });
