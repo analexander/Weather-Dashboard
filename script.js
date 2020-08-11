@@ -8,35 +8,35 @@ var day1Moment = nowMoment.add(1, 'day').format('L');
 console.log(day1Moment);
 
 var displayDay1 = $("<p>").text(day1Moment);
-$("#day-1").append(displayDay1)
+$(".day-1").append(displayDay1)
 
 // day 2
 var day2Moment = nowMoment.add(1, 'day').format('L');
 console.log(day2Moment);
 
 var displayDay2 = $("<p>").text(day2Moment);
-$("#day-2").append(displayDay2)
+$(".day-2").append(displayDay2)
 
 // day 3
 var day3Moment = nowMoment.add(1, 'day').format('L');
 console.log(day3Moment);
 
 var displayDay3 = $("<p>").text(day3Moment);
-$("#day-3").append(displayDay3)
+$(".day-3").append(displayDay3)
 
 // day 4
 var day4Moment = nowMoment.add(1, 'day').format('L');
 console.log(day4Moment);
 
 var displayDay4 = $("<p>").text(day4Moment);
-$("#day-4").append(displayDay4)
+$(".day-4").append(displayDay4)
 
 // day 5
 var day5Moment = nowMoment.add(1, 'day').format('L');
 console.log(day5Moment);
 
 var displayDay5 = $("<p>").text(day5Moment);
-$("#day-5").append(displayDay5)
+$(".day-5").append(displayDay5)
 
 function searchWeather(city) {
 
@@ -100,11 +100,11 @@ function fiveDayForecast(city) {
       var iconImg5 = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+ response.list[13].weather[0].icon +".png");
 
 
-    $("#day-1").append(day1Temp, iconImg1, day1Humid);
-    $("#day-2").append(day2Temp, iconImg2, day2Humid);
-    $("#day-3").append(day3Temp, iconImg3, day3Humid);
-    $("#day-4").append(day4Temp, iconImg4, day4Humid);
-    $("#day-5").append(day5Temp, iconImg5, day5Humid);
+    $(".day-1").append(day1Temp, iconImg1, day1Humid);
+    $(".day-2").append(day2Temp, iconImg2, day2Humid);
+    $(".day-3").append(day3Temp, iconImg3, day3Humid);
+    $(".day-4").append(day4Temp, iconImg4, day4Humid);
+    $(".day-5").append(day5Temp, iconImg5, day5Humid);
 
 });
 
@@ -138,14 +138,14 @@ function getUVIndex(lat, lon){
     });
 }
 
-function setLocalStorage() {
-// Get city search input
-var searchInput = $("#search-input").val();
-if (searchInput) {
-    // Load the city from storage
-    searchInput.innerHTML = localStorage.getItem(searchInput);
-}
-};
+// function setLocalStorage() {
+// // Get city search input
+// var searchInput = $("#search-input").val();
+// if (searchInput) {
+//     // Load the city from storage
+//     searchInput.innerHTML = localStorage.getItem(searchInput);
+// }
+// };
 
 
 // search button click event
@@ -155,6 +155,10 @@ $("#search-btn").on("click", function(event) {
     // This line of code will grab the input from the textbox
     var searchInput = $("#search-input").val().trim();
     // var city = "city";
+    if (searchInput) {
+        // Load the city from storage
+        searchInput.innerHTML = localStorage.getItem(searchInput);
+    }
     localStorage.setItem("city", searchInput);
     getLatLon(searchInput)
     searchWeather(searchInput)

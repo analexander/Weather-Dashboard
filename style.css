@@ -1,0 +1,38 @@
+body {
+    display: block;
+}
+
+nav {
+    position: fixed;
+    margin-bottom: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#five-day-forecast {
+    float: left;
+}
+
+/* #sidebar-wrapper {
+    float: left;
+} */
+
+/* .day-1.day-2.day-3.day-4.day-5 {
+    float: left;
+} */
+
+/* .container {
+    margin: 50px;
+    padding: 50px;
+    border: 5px solid black;
+    float: right;
+} */
+
+.col {
+    border: 2px solid blue;
+    margin: 20px;
+}

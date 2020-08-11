@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
     <!-- Main Bootstrap Search -->
-    <nav class="navbar sticky-top navbar-light bg-light">
+
+    <nav class="navbar sticky-top navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Weather Dashboard</a>
       </nav>
-      <div class="container">
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search City" aria-label="Search">
-          <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-4" id="sidebar-wrapper">
+    <form class="form-inline">
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search City" aria-label="Search">
+        <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
+    </div>
+
     <div id="city-name-date"></div>
+    <div class="container-fluid col-8">
     <div id="weather-output">
+    </div>
 
     </div>
     
     <br><br>
-
-    <div id="five-day-forecast">
-
-        <div id="day-1"></div>
-        <div id="day-2"></div>
-        <div id="day-3"></div>
-        <div id="day-4"></div>
-        <div id="day-5"></div>
-
+    <!-- <div class="container"> -->
+        <div id="five-day-forecast">
+            <div class="row">
+                <div class="col day-1"></div>
+                <div class="col day-2"></div>
+                <div class="col day-3"></div>
+                <div class="col day-4"></div>
+                <div class="col day-5"></div>
+            </div>
+        </div>
+    <!-- </div> -->
     </div>
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
