@@ -1,6 +1,11 @@
+// hides 5-day-forecast div
+$( document ).ready(function() {
+    $("#five-day-forecast").hide();
+});
+
 // displays current day
 var nowMoment = moment();
-var displayMoment = document.getElementById('city-name-date');
+var displayMoment = document.getElementById('current-day');
 displayMoment.innerHTML = nowMoment.format('L');
 
 // day 1 
@@ -59,8 +64,7 @@ function searchWeather(city) {
     var cityWindSpeed = $("<h2>").text("Wind Speed: " + response.wind.speed + " MPH");
 
     $("#weather-output").empty();
-    $("#weather-output").append(cityIcon, cityTemp, cityHumid, cityWindSpeed);
-    $("#city-name-date").append(cityName)
+    $("#weather-output").append(cityName, cityIcon, cityTemp, cityHumid, cityWindSpeed);
 
     });
 
@@ -98,7 +102,6 @@ function fiveDayForecast(city) {
       var day5Temp = $("<p>").text("Temperature: " + response.list[37].main.temp + " ℉");
       var day5Humid = $("<p>").text("Humidity: " + response.list[37].main.humidity + " %");
       var iconImg5 = $("<img>").attr("src", "http://openweathermap.org/img/wn/"+ response.list[13].weather[0].icon +".png");
-
 
     $(".day-1").append(day1Temp, iconImg1, day1Humid);
     $(".day-2").append(day2Temp, iconImg2, day2Humid);
@@ -160,6 +163,7 @@ $("#search-btn").on("click", function(event) {
         searchInput.innerHTML = localStorage.getItem(searchInput);
     }
     localStorage.setItem("city", searchInput);
+    $("#five-day-forecast").show();
     getLatLon(searchInput)
     searchWeather(searchInput)
     fiveDayForecast(searchInput)
